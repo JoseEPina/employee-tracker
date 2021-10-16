@@ -2,7 +2,7 @@
 const menuOptions = [
    {
       type: 'list',
-      name: 'menuOption',
+      name: 'task',
       message: 'What do you want to do? ',
       choices: [
          'view all departments',
