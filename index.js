@@ -22,6 +22,8 @@ const selectTask = async () => {
          sql = `SELECT * FROM employees`;
          break;
       case 'add a department':
+         sql = `INSERT INTO departments (name)
+                  VALUES ('${answers.departmentName}')`;
          break;
       case 'add a role':
          break;

@@ -16,6 +16,19 @@ const appPrompts = [
       ],
       loop: false,
    },
+   {
+      when: (answers) => answers.nextTask === 'add a department',
+      type: 'input',
+      name: 'departmentName',
+      message: "Enter the department's name (Required): ",
+      validate: (notEmpty) => {
+         if (notEmpty) {
+            return true;
+         } else {
+            return false;
+         }
+      },
+   },
 ];
 
 module.exports = { appPrompts };
