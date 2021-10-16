@@ -1,8 +1,8 @@
 // Inquirer questions for ToDo's
-const menuOptions = [
+const appPrompts = [
    {
       type: 'list',
-      name: 'task',
+      name: 'nextTask',
       message: 'What do you want to do? ',
       choices: [
          'view all departments',
@@ -14,8 +14,8 @@ const menuOptions = [
          'update an employee role',
          'exit',
       ],
-      loop: true,
+      loop: false,
    },
 ];
 
-module.exports = { menuOptions };
+module.exports = { appPrompts };
