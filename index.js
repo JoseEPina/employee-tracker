@@ -3,6 +3,7 @@ const { appPrompts } = require('./utils/appPrompts');
 const Department = require('./lib/Department');
 const Employee = require('./lib/Employee');
 const Role = require('./lib/Role');
+const db = require('./db/connection');
 
 const selectTask = async () => {
    // obtain task answer from inquirer prompts and store to answers constant
@@ -11,6 +12,14 @@ const selectTask = async () => {
    switch (answers.nextTask) {
       case 'view all departments':
          console.log(`~ answers.nextTask`, answers.nextTask);
+         const sql = `SELECT * FROM departments`;
+
+         db.query(sql, (err, rows) => {
+            console.log('Enter db.query: ');
+            if (err) throw err;
+            console.log('display rows:\n', rows);
+         });
+         console.log('Exit')
          break;
       case 'view all roles':
          console.log(`~ answers.nextTask`, answers.nextTask);
@@ -41,7 +50,7 @@ const selectTask = async () => {
 
 const startApp = async () => {
    let nextTask = await selectTask();
-
+   db.end();
    return;
 };
 
