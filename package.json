@@ -1,0 +1,25 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseEPina/employee-tracker.git"
+  },
+  "keywords": [],
+  "author": "Jose E Pina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoseEPina/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/JoseEPina/employee-tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.1"
+  }
+}
