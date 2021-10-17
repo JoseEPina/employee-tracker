@@ -29,6 +29,45 @@ const appPrompts = [
          }
       },
    },
+   {
+      when: (answers) => answers.nextTask === 'add a role',
+      type: 'input',
+      name: 'roleTitle',
+      message: "Enter the new role's title (Required): ",
+      validate: (notEmpty) => {
+         if (notEmpty) {
+            return true;
+         } else {
+            return false;
+         }
+      },
+   },
+   {
+      when: (answers) => answers.nextTask === 'add a role',
+      type: 'number',
+      name: 'roleSalary',
+      message: "Enter the new role's salary (Required): ",
+      validate: (notEmpty) => {
+         if (notEmpty) {
+            return true;
+         } else {
+            return false;
+         }
+      },
+   },
+   {
+      when: (answers) => answers.nextTask === 'add a role',
+      type: 'number',
+      name: 'roleDepartmentId',
+      message: 'Enter the deparment ID for the new role. (Required): ',
+      validate: (notEmpty) => {
+         if (notEmpty) {
+            return true;
+         } else {
+            return false;
+         }
+      },
+   },
 ];
 
 module.exports = { appPrompts };

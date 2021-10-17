@@ -13,19 +13,21 @@ const selectTask = async () => {
    let sql = ``;
    switch (answers.nextTask) {
       case 'view all departments':
-         sql = `SELECT * FROM departments`;
+         sql = `SELECT * FROM departments;`;
          break;
       case 'view all roles':
-         sql = `SELECT * FROM roles`;
+         sql = `SELECT * FROM roles;`;
          break;
       case 'view all employees':
-         sql = `SELECT * FROM employees`;
+         sql = `SELECT * FROM employees;`;
          break;
       case 'add a department':
          sql = `INSERT INTO departments (name)
-                  VALUES ('${answers.departmentName}')`;
+                  VALUES ('${answers.departmentName}');`;
          break;
       case 'add a role':
+         sql = `INSERT INTO roles (title, salary, departmentId)
+                  VALUES ('${answers.roleTitle}', '${answers.roleSalary}', '${answers.roleDepartmentId}');`;
          break;
       case 'add an employee':
          break;
