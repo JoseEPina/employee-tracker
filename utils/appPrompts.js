@@ -6,8 +6,8 @@ const MGR_INDEX = 2; // index of 2 to array of Manager's options
 // Array of arrays, of display options
 const displayLists = [
    ['D1', 'D2', 'D3'],
-   ['R1', 'R2', 'R3'], 
-   ['none', 'E1 E11', 'E2 E22', 'E3 E33', 'E4 E44', 'E5 E55']
+   ['R1', 'R2', 'R3'],
+   ['none', 'E1 E11', 'E2 E22', 'E3 E33', 'E4 E44', 'E5 E55', 'E6 E66', 'E7 E77'],
 ];
 // const displayLists = [[], [], ['none']];
 
