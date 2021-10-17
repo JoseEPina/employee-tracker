@@ -15,6 +15,7 @@ const selectTask = async () => {
    let selectedName = ``;
    let roleId = 0;
    let managerId = 0;
+   let employeeId = 0;
    switch (answers.nextTask) {
       case 'View all departments':
          sql = `SELECT * FROM departments;`;
@@ -57,11 +58,24 @@ const selectTask = async () => {
          }
          break;
       case 'Update an employee role':
+         displayArrayIndex = ROLE_INDEX;
+         selectedName = answers.updateEmpName;
+         employeeId = displayLists[MGR_INDEX].indexOf(selectedName);
+         selectedName = answers.updateRoleName;
+         roleId = displayLists[displayArrayIndex].indexOf(selectedName) + 1;// roleId = array[index].indexOf(elem) + 1
+         sql = `UPDATE employees SET roleId = ${roleId} WHERE id = ${employeeId};`;
          break;
       case 'Exit':
          db.end();
          return;
          break;
+      
+      
+         let a = 2;
+         let b = 3;
+         let x = [12, 14, 16, 18, 20];
+         let other = x[a].indexof(2);
+      
    }
    db.query(sql, (err, rows) => {
       if (err) throw err;
@@ -73,7 +87,6 @@ const selectTask = async () => {
 
       selectTask();
    });
-
 };
 
 const startApp = async () => {
