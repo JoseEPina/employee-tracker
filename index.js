@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const { appPrompts } = require('./utils/appPrompts');
+const { appPrompts, DEPT_INDEX, ROLE_INDEX, MGR_INDEX, displayLists } = require('./utils/appPrompts');
 const Department = require('./lib/Department');
 const Employee = require('./lib/Employee');
 const Role = require('./lib/Role');
@@ -11,49 +11,69 @@ const selectTask = async () => {
    const answers = await inquirer.prompt(appPrompts);
 
    let sql = ``;
+   let displayArrayIndex = 0;
+   let selectedName = ``;
+   let roleId = 0;
+   let managerId = 0;
    switch (answers.nextTask) {
-      case 'view all departments':
+      case 'View all departments':
          sql = `SELECT * FROM departments;`;
          break;
-      case 'view all roles':
+      case 'View all roles':
          sql = `SELECT * FROM roles;`;
          break;
-      case 'view all employees':
+      case 'View all employees':
          sql = `SELECT * FROM employees;`;
          break;
-      case 'add a department':
+      case 'Add a department':
+         displayArrayIndex = DEPT_INDEX;
+         selectedName = answers.departmentName;
          sql = `INSERT INTO departments (name)
                   VALUES ('${answers.departmentName}');`;
          break;
-      case 'add a role':
+      case 'Add a role':
+         displayArrayIndex = ROLE_INDEX;
+         selectedName = answers.roleDepartmentName;
+         roleId = displayLists[DEPT_INDEX].indexOf(selectedName);
+         selectedName = answers.roleTitle;
+         //adding 1 to roleId to convert from array index to table ID.
          sql = `INSERT INTO roles (title, salary, departmentId)
-                  VALUES ('${answers.roleTitle}', '${answers.roleSalary}', '${answers.roleDepartmentId}');`;
+            VALUES ('${answers.roleTitle}', '${answers.roleSalary}', '${roleId + 1}');`;
          break;
-      case 'add an employee':
-         sql = `INSERT INTO employees (firstName, lastName, roleId, managerId)
-                  VALUES ('${answers.employeeFirstName}', '${answers.employeeLastName}', '${answers.employeeRoleId}', '${answers.employeeManagerId}');`;
+      case 'Add an employee':
+         const MY_NULL_CONDITION = 1;
+         displayArrayIndex = MGR_INDEX;
+         selectedName = answers.employeeRoleName;
+         roleId = displayLists[ROLE_INDEX].indexOf(selectedName) + 1;
+         selectedName = answers.employeeManagerName;
+         managerId = displayLists[displayArrayIndex].indexOf(selectedName) + 1;
+         selectedName = answers.employeeFirstName + ' ' + answers.employeeLastName;
+         if (managerId === MY_NULL_CONDITION) {
+            sql = `INSERT INTO employees (firstName, lastName, roleId, managerId)
+               VALUES ('${answers.employeeFirstName}', '${answers.employeeLastName}', '${roleId}', NULL);`;
+         } else {
+            sql = `INSERT INTO employees (firstName, lastName, roleId, managerId)
+               VALUES ('${answers.employeeFirstName}', '${answers.employeeLastName}', '${roleId}', '${managerId}');`;
+         }
          break;
-      case 'update an employee role':
+      case 'Update an employee role':
          break;
-      case 'exit':
+      case 'Exit':
          db.end();
          return;
          break;
    }
-
    db.query(sql, (err, rows) => {
       if (err) throw err;
+      if (selectedName) {
+         displayLists[displayArrayIndex].push(selectedName);
+      }
       console.log(`\n ${answers.nextTask}\n`);
       console.table(rows);
+
       selectTask();
    });
 
-   // const { rows } = await db.query(sql);
-   // console.log('~ rows', rows);
-
-   // are we done? When IS NOT 'exit'- then recursive call ask for another task selection
-   // When task IS 'exit'- then stop recursive call and exit prompts.
-   // return answers.nextTask !== 'exit' ? selectTask() : answers.nextTask;
 };
 
 const startApp = async () => {
