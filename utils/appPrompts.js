@@ -68,6 +68,58 @@ const appPrompts = [
          }
       },
    },
+   {
+      when: (answers) => answers.nextTask === 'add an employee',
+      type: 'input',
+      name: 'employeeFirstName',
+      message: "Enter the new employee's first name. (Required): ",
+      validate: (notEmpty) => {
+         if (notEmpty) {
+            return true;
+         } else {
+            return false;
+         }
+      },
+   },
+   {
+      when: (answers) => answers.nextTask === 'add an employee',
+      type: 'input',
+      name: 'employeeLastName',
+      message: "Enter the new employee's last name. (Required): ",
+      validate: (notEmpty) => {
+         if (notEmpty) {
+            return true;
+         } else {
+            return false;
+         }
+      },
+   },
+   {
+      when: (answers) => answers.nextTask === 'add an employee',
+      type: 'number',
+      name: 'employeeRoleId',
+      message: "Enter the new employee's role ID number. (Required): ",
+      validate: (notEmpty) => {
+         if (notEmpty) {
+            return true;
+         } else {
+            return false;
+         }
+      },
+   },
+   {
+      when: (answers) => answers.nextTask === 'add an employee',
+      type: 'number',
+      name: 'employeeManagerId',
+      message: "Enter the new employee's Manager ID number. (Required): ",
+      validate: (notEmpty) => {
+         if (notEmpty) {
+            return true;
+         } else {
+            return false;
+         }
+      },
+   },
 ];
 
 module.exports = { appPrompts };

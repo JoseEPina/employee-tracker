@@ -30,6 +30,8 @@ const selectTask = async () => {
                   VALUES ('${answers.roleTitle}', '${answers.roleSalary}', '${answers.roleDepartmentId}');`;
          break;
       case 'add an employee':
+         sql = `INSERT INTO employees (firstName, lastName, roleId, managerId)
+                  VALUES ('${answers.employeeFirstName}', '${answers.employeeLastName}', '${answers.employeeRoleId}', '${answers.employeeManagerId}');`;
          break;
       case 'update an employee role':
          break;
