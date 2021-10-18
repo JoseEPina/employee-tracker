@@ -1,3 +1,4 @@
+/* MySQL script to create the database's tables */
 DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS departments;

@@ -6,7 +6,7 @@ const MGR_INDEX = 2; // index of 2 to array of Manager's options
 // Array of arrays, of display options
 const displayLists = [[], [], ['none']];
 
-// Inquirer questions for ToDo's
+// Inquirer questions for employee tracker
 const appPrompts = [
    {
       type: 'list',

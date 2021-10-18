@@ -1,3 +1,4 @@
+/* MySQL script to seed the database's tables */
 INSERT INTO departments 
    (name)
 VALUES 
