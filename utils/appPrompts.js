@@ -4,12 +4,7 @@ const ROLE_INDEX = 1; // index of 1 to array of Roles options
 const MGR_INDEX = 2; // index of 2 to array of Manager's options
 
 // Array of arrays, of display options
-const displayLists = [
-   ['D1', 'D2', 'D3'],
-   ['R1', 'R2', 'R3'],
-   ['none', 'E1 E11', 'E2 E22', 'E3 E33', 'E4 E44', 'E5 E55', 'E6 E66', 'E7 E77'],
-];
-// const displayLists = [[], [], ['none']];
+const displayLists = [[], [], ['none']];
 
 // Inquirer questions for ToDo's
 const appPrompts = [
@@ -74,13 +69,6 @@ const appPrompts = [
       name: 'roleDepartmentName',
       message: "Select the role's deparment that this role belongs to. (Required): ",
       choices: displayLists[DEPT_INDEX],
-      validate: (notEmpty) => {
-         if (notEmpty) {
-            return true;
-         } else {
-            return false;
-         }
-      },
    },
    {
       when: (answers) => answers.nextTask === 'Add an employee',
@@ -114,13 +102,6 @@ const appPrompts = [
       name: 'employeeRoleName',
       message: "Select the new employee's role. (Required): ",
       choices: displayLists[ROLE_INDEX],
-      validate: (notEmpty) => {
-         if (notEmpty) {
-            return true;
-         } else {
-            return false;
-         }
-      },
    },
    {
       when: (answers) => answers.nextTask === 'Add an employee',
@@ -128,13 +109,6 @@ const appPrompts = [
       name: 'employeeManagerName',
       message: "Select the new employee's Manager. (Required): ",
       choices: displayLists[MGR_INDEX],
-      validate: (notEmpty) => {
-         if (notEmpty) {
-            return true;
-         } else {
-            return false;
-         }
-      },
    },
    {
       when: (answers) => answers.nextTask === 'Update an employee role',
@@ -142,13 +116,6 @@ const appPrompts = [
       name: 'updateEmpName',
       message: 'Select the employee to update. (Required): ',
       choices: displayLists[MGR_INDEX],
-      validate: (notEmpty) => {
-         if (notEmpty) {
-            return true;
-         } else {
-            return false;
-         }
-      },
    },
    {
       when: (answers) => answers.nextTask === 'Update an employee role',
@@ -156,13 +123,6 @@ const appPrompts = [
       name: 'updateRoleName',
       message: "Select the employee's new role. (Required): ",
       choices: displayLists[ROLE_INDEX],
-      validate: (notEmpty) => {
-         if (notEmpty) {
-            return true;
-         } else {
-            return false;
-         }
-      },
    },
 ];
 

@@ -23,7 +23,7 @@ CREATE TABLE employees (
    firstName VARCHAR(30) NOT NULL,
    lastName VARCHAR(30) NOT NULL,
    roleId INTEGER,
-   managerId INTEGER,
+   managerId INTEGER DEFAULT NULL,
    CONSTRAINT fk_role 
       FOREIGN KEY (roleId) 
       REFERENCES roles (id) 
