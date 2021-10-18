@@ -15,6 +15,7 @@ My application makes use of the [MySQL 2](https://www.npmjs.com/package/mysql2) 
 -  [Installation](#installation)
 -  [Usage](#usage)
 -  [Output Example](#output-example)
+-  [Project URLs](#project-urls)
 -  [License](#license)
 -  [Questions](#questions)
 
@@ -78,23 +79,30 @@ My application makes use of the [MySQL 2](https://www.npmjs.com/package/mysql2) 
 
 4. Once that is complete, create the database tables by entering: _source db/schema.sql_
 
-5. Now run the application by entering: **_node index_** in the terminal prompt, from your local main branch .
+5. Once that is complete, seed the database tables by entering: _source db/seeds.sql_
 
-6. You will be prompted throught the terminal to select an action to start adding information to the database. Please note that these are marked as **(Required)**.
+6. Now run the application by entering: **_node index_** in the terminal prompt, from your local main branch .
 
-7. Once you are satisfied with your results, please remember to select _*'Exit'*_ in the inquirer prompts to leave the application.
+7. You will be prompted throught the terminal to select an action to start adding information to the database. Please note that these are marked as **(Required)**.
+
+8. Once you are satisfied with your results, please remember to select _*'Exit'*_ in the inquirer prompts to leave the application.
 
 ## Output Example
 
 ### Generated Command Line Output:
 
-![Example-01](./assets/demo-01.png)
+![Example-01](./assets/demo01.png)
 
-![Example-02](./assets/demo-02.png)
+![Example-02](./assets/demo02.png)
 
 ## Output Video Example
 
 [Link to video on Google Drive](https://drive.google.com/file/d/1-F9kfCntNPUXOWgp4zKo_X7PHeSwKeKB/view)
+
+## Project URLs
+
+-  The URL of the GitHub repository:
+   https://github.com/JoseEPina/employee-tracker
 
 ## License
 
@@ -104,7 +112,7 @@ Licensed under the [MIT License](https://choosealicense.com/licenses/mit).
 
 ## Questions
 
-README Generator created by [JoseEPina](https://github.com/JoseEPina).
+Employee Tracker created by [JoseEPina](https://github.com/JoseEPina).
 
 For any additional questions or comments, please send a message to the following address:
 
